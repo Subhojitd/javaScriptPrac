@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo list</title>
+    <style>
+        #todo-items{
+            list-style:none;
+            margin: 0;
+            padding: 0;
+        }
+        .todo-item{
+            margin-bottom: 10px;
+        }
+        .todo-item .delete-button{
+            float: right;
+            background-color: #ff0000;
+            color: #ffffff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Html Part -->
+    <h1>Todo List</h1>
+
+    <!-- Form -->
+    <form >
+        <label for="todo-input">Add Tasks :</label>
+        <input type="text" id="todo-input">
+        <button type="button" onclick="addTodo()">Add</button>
+    </form>
+    <hr>
+    <ul id="todo-items"></ul>
+    
+    <!--JavaScript part  -->
+    <script>
+        // Function for adding tasks
+        function addTodo(){
+            var input = document.getElementById("todo-input");
+            var todoList =document.getElementById("todo-items");
+            if (input.value ===""){
+                return;
+            }
+            // Add new task
+            var todoItem =document.createElement("li");
+            todoItem.className = "todo-item";
+            todoItem.innerHTML = input.value;
+            //Delete task
+            var deleteButton = document.createElement("button");
+            deleteButton.className="delete-button";
+            deleteButton.innerHTML = "Delete";
+            deleteButton.onclick = function(){
+                todoList.removeChild(todoItem);
+            };
+            // to append the child
+            todoItem.appendChild(deleteButton);
+            todoList.appendChild(todoItem);
+
+            input.value = "";
+
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Form</title>
+    <script>
+      function validateForm(event) {
+        event.preventDefault();
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var error = document.getElementById("error");
+
+        // Check if email is valid
+        if (email.indexOf("@") == -1) {
+          error.innerHTML = "Invalid email or password!";
+          error.style.color = "red";
+          return false;
+        }
+
+        // Check if password is at least 8 characters long
+        if (password.length < 8) {
+          error.innerHTML = "Invalid email or password!";
+          error.style.color = "red";
+          return false;
+        }
+
+        // If both email and password are valid, display success message
+        error.innerHTML = "Valid email and password!";
+        error.style.color = "green";
+        return true;
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <label>Email:</label>
+      <input type="text" id="email" required><br>
+
+      <label>Password:</label>
+      <input type="password" id="password" required><br>
+
+      <button type="submit" onclick="validateForm(event)">Submit</button>
+    </form>
+
+    <p id="error"></p>
+  </body>
+</html>

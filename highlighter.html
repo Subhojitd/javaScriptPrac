@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlight long words</title>
+    <style>
+        .highlight{
+            background-color: rgb(247, 247, 46);
+        }
+    </style>
+</head>
+<body>
+    <p id="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto doloremque labore vero officiis unde cum perspiciatis deleniti temporibus mollitia nesciunt placeat velit facilis vel aperiam debitis harum tempore modi aspernatur, autem ipsum blanditiis quis alias fuga eum. Esse dolorem placeat vero, impedit nesciunt reprehenderit mollitia facere quia commodi quisquam suscipit recusandae doloremque hic eligendi cumque explicabo ipsum alias fuga unde labore necessitatibus totam vitae. Quasi natus facere totam reprehenderit obcaecati? Quasi accusantium, non corporis adipisci culpa inventore qui minima similique reprehenderit aliquid beatae illum nihil provident aspernatur soluta in, nemo voluptatem nam a minus! Sed vitae dolores quidem iure eos quasi molestiae esse, sequi et quae perferendis earum! Quibusdam ipsa corporis velit quaerat ex accusantium impedit et, similique, ipsum dignissimos eveniet unde provident fugit sunt eum, laborum maiores! Eligendi rem corporis quod tempora laborum, ipsum nam earum est blanditiis ipsa tenetur necessitatibus nihil, repudiandae alias aliquam cumque nostrum voluptas sit aspernatur eveniet, quisquam minima. Blanditiis totam perspiciatis et porro provident, nihil, reprehenderit sunt sed eius quibusdam modi libero cupiditate qui molestias vel nam iusto autem placeat incidunt! Velit enim doloremque ducimus ipsam dolorem aspernatur cupiditate temporibus amet sapiente dicta voluptas sint nesciunt, nam laboriosam, in eveniet, facilis ut officia libero nemo veniam deleniti quis animi. Libero suscipit placeat commodi qui eius laborum, officiis est deserunt praesentium. Accusantium ullam odit, necessitatibus ea reiciendis ex tempore illum blanditiis possimus. Facilis, doloribus. Modi obcaecati possimus doloremque expedita neque eveniet odio aliquam deserunt quaerat dolorum pariatur placeat nesciunt odit corporis, aperiam quisquam voluptatem maiores id impedit repellendus assumenda esse molestias. Minima id nisi, blanditiis tempora voluptas, eveniet repellendus facilis neque quae corporis ea quaerat delectus et voluptate, magnam excepturi corrupti alias. Totam veritatis accusantium et numquam nam debitis consectetur quia temporibus dicta exercitationem expedita explicabo officia a vitae sit maxime laboriosam deserunt, velit ab?</p>
+
+    <!-- javaScript -->
+    <script>
+        var paragraph = document.getElementById("paragraph");
+
+        var words=paragraph.innerText.split(" ");
+
+        // loop
+        for(var i =0;i<words.length;i++){
+            if (words[i].length>8){
+                var span=document.createElement("span")
+                span.innerText=words[i]
+                span.classList.add("highlight")
+                words[i]=span.outerHTML;
+            }
+        }
+        paragraph.innerHTML=words.join(" ");
+    
+
+
+    </script>
+    
+</body>
+</html>

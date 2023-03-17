@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Color Changing Button</title>
+    <style>
+      /* Set the initial background color of the page */
+      body {
+        background-color: white;
+      }
+
+      /* Style the button */
+      button {
+        font-size: 24px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color: blue;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="color-button">Change Color</button>
+
+    <script>
+      // Define an array of colors
+      var colors = ["red", "green", "blue", "yellow", "orange", "purple"];
+
+      // Get the button element from the HTML document
+      var colorButton = document.getElementById("color-button");
+
+      // Add a click event listener to the button
+      colorButton.addEventListener("click", function() {
+        // Generate a random index for the colors array
+        var randomIndex = Math.floor(Math.random() * colors.length);
+
+        // Set the background color of the body to the randomly selected color
+        document.body.style.backgroundColor = colors[randomIndex];
+      });
+    </script>
+  </body>
+</html>

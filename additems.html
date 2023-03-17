@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add list Items</title>
+</head>
+<body>
+    <!-- Html part -->
+    <h1>Course Syllabus</h1>
+    <ul id="list"></ul>
+    <button id="add-btn">More</button>
+
+    <!-- Js part -->
+    <script>
+        // Define the list items of array
+        var listItems= ['HTML','CSS','JavaScript','React.js','MongoDB','Node.js','Vue.js','Tailwind CSS','SQL']
+        // Get the list items and the button elements from the HTML document
+        var list = document.getElementById("list");
+        var button = document.getElementById("add-btn");
+
+        //Initialize a counter 
+        var currentItem = 0;
+
+        //Add a click event listener to the button
+        button.addEventListener("click",function(){
+            //Check if there are any remaining list items
+            if(currentItem<listItems.length){
+                //Create a new list element
+                var newItem =document.createElement("li");
+
+                //Set the text cntent to the current list
+                newItem.textContent =listItems[currentItem];
+
+                //Add a new item to the list
+                list.appendChild(newItem);
+
+                // Incement the counter 
+                currentItem++;
+
+                // if all items are added then disable the add button and display a message
+                if(currentItem===listItems.length){
+                    button.disabled=true;
+                    var message = document.createElement("p");
+                    message.textContent="No more subjects !!!";
+                    document.body.appendChild(message);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
